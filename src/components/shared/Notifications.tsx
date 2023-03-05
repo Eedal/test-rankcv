@@ -40,7 +40,7 @@ const Notifications = () => {
         text: "",
       })
     );
-  };
+  }; 
 
   if (!open) return <></>;
 
