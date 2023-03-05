@@ -11,18 +11,6 @@ import {
   selectIsLoggedIn,
 } from "../../../features/auth/authSlice";
 
-const styles = {
-  link: {
-    textDecoration: "none",
-    color: "inherit",
-    marginRight: "1rem",
-    "&:hover": {
-      textDecoration: "underline",
-      textDecorationColor: "#fff",
-    },
-  },
-};
-
 const Header = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useAppSelector(selectIsLoggedIn);
@@ -39,8 +27,8 @@ const Header = () => {
   }, [isAuthenticated]);
 
   return (
-    <AppBar position="fixed" color="inherit" >
-      <Toolbar sx={{ marginX: "45px"  }}>
+    <AppBar position="fixed" color="inherit">
+      <Toolbar sx={{ marginX: "45px" }}>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Rick and Morty
         </Typography>

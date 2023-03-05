@@ -6,6 +6,7 @@ import { useQuery } from "@apollo/client";
 import { GET_CHARACTER } from "../core/services/queries";
 import { useMemo } from "react";
 import CharacterDetail from "../components/character/CharacterDetail";
+import SkeletonCard from "../components/shared/SkeletonCard";
 
 const CharacterComponent = () => {
   const { characterId } = useParams();
@@ -26,10 +27,8 @@ const CharacterComponent = () => {
       <Box display="flex" justifyContent="center">
         {loading && (
           <Grid container spacing={2} justifyContent="center">
-            {Array.from({ length: 12 }, (_, i) => (
-              <Grid key={i} item xs={12} sm={6} md={4} lg={3}>
-                <Skeleton variant="rectangular" width={250} height={360} />
-              </Grid>
+            {Array.from({ length: 1 }, (_, i) => (
+              <SkeletonCard key={i} maxWidth={300} />
             ))}
           </Grid>
         )}

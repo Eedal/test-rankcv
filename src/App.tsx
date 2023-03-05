@@ -8,12 +8,14 @@ import Character from "./pages/Character";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useAppSelector } from "./hooks";
 import { selectIsLoggedIn } from "./features/auth/authSlice";
+import Notifications from "./components/shared/Notifications";
 
 function App() {
   const isAuthenticated = useAppSelector(selectIsLoggedIn);
   
   return (
     <BrowserRouter>
+        <Notifications />
       <Routes>
         <Route path="/login" element={<Login />} />
 

@@ -14,6 +14,7 @@ import { Episode } from "../core/types/episode.type";
 import { EpisodeResponse } from "../core/types/episode.type";
 import { GET_EPISODES } from "../core/services/queries";
 import { Subtitle } from "../components/shared/styledComponents";
+import SkeletonCard from "../components/shared/SkeletonCard";
 
 const Episodes = () => {
   try {
@@ -25,7 +26,6 @@ const Episodes = () => {
       select,
       handleSelect,
     } = useEpisode<EpisodeResponse, Episode>({ query: GET_EPISODES });
-
 
     return (
       <MainLayout>
@@ -68,7 +68,18 @@ const Episodes = () => {
             </FormControl>
           </Grid>
           <Grid item xs={9}>
-            {loading && <h1>Loading...</h1>}
+            {loading && (
+              <Grid
+                container
+                spacing={2}
+                justifyContent="center"
+                paddingTop={4}
+              >
+                {Array.from({ length: 12 }, (_, i) => (
+                  <SkeletonCard key={i} maxWidth={200} />
+                ))}
+              </Grid>
+            )}
             {error && <h1>Error...</h1>}
             {!loading && !error && episode?.characters.length && (
               <CharacterList characters={episode?.characters} />
