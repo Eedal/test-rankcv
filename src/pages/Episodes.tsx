@@ -9,31 +9,30 @@ import {
 } from "@mui/material";
 import CharacterList from "../components/character/CharacterList";
 import MainLayout from "../components/layout/MainLayout";
-import useEpisode from "../core/hooks/useEpisode";
-import  { Episode } from "../core/types/episode.type";
+import useEpisode from "../core/hooks/useGenericData";
+import { Episode } from "../core/types/episode.type";
 import { EpisodeResponse } from "../core/types/episode.type";
 import { GET_EPISODES } from "../core/services/queries";
-
-
+import { Subtitle } from "../components/shared/styledComponents";
 
 const Episodes = () => {
   try {
-    const { item: episode, listResult: episodes, loading, error, select, handleSelect } =
-      useEpisode<EpisodeResponse, Episode>({ query: GET_EPISODES});
+    const {
+      item: episode,
+      listResult: episodes,
+      loading,
+      error,
+      select,
+      handleSelect,
+    } = useEpisode<EpisodeResponse, Episode>({ query: GET_EPISODES });
 
     console.count("render");
 
     return (
       <MainLayout>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: 15,
-          }}
-        >
+        <Subtitle>
           <Typography variant="h3">Episode: {episode?.name}</Typography>
-        </div>
+        </Subtitle>
         <div
           style={{
             display: "flex",
@@ -47,7 +46,9 @@ const Episodes = () => {
         </div>
         <Grid container spacing={2}>
           <Grid item xs={3}>
-            <Box mt={10} mb={2}>Select an episode</Box>
+            <Box mt={10} mb={2}>
+              Select an episode
+            </Box>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Episodes</InputLabel>
               <Select
@@ -71,14 +72,14 @@ const Episodes = () => {
             {loading && <h1>Loading...</h1>}
             {error && <h1>Error...</h1>}
             {!loading && !error && episode?.characters.length && (
-              <CharacterList characters={episode?.characters}  />
+              <CharacterList characters={episode?.characters} />
             )}
           </Grid>
         </Grid>
       </MainLayout>
     );
   } catch (e) {
-    // return <h1>Error: {JSON.stringify(e)}</h1>;
+    return <h1>Error: {JSON.stringify(e)}</h1>;
   }
 };
 

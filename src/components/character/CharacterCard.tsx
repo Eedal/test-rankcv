@@ -32,10 +32,13 @@ const CharacterCard = ({ character }: CharacterProp) => {
           e.stopPropagation();
           handleFavorites(character.id);
         }}
-        sx={{ position: "absolute", top: 1, right: 1 }}
+        sx={{ position: "absolute", top: -10, right: -10 }}
       >
-        {favorites.includes(character.id) && <StarOutlinedIcon />}
-        {!favorites.includes(character.id) && <StarBorderOutlinedIcon />}
+        {favorites.includes(character.id) ? (
+          <StarOutlinedIcon style={{ fontSize: "3rem", color: "#f6c900" }} />
+        ) : (
+          <StarBorderOutlinedIcon style={{ fontSize: "3rem" }} />
+        )}
       </IconButton>
       <CardMedia
         component="img"

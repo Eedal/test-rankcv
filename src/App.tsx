@@ -11,7 +11,7 @@ import { selectIsLoggedIn } from "./features/auth/authSlice";
 
 function App() {
   const isAuthenticated = useAppSelector(selectIsLoggedIn);
-
+  
   return (
     <BrowserRouter>
       <Routes>

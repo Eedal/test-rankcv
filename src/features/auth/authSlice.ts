@@ -12,7 +12,7 @@ const initialState: AuthState = {
   isLoggedIn,
 };
 
-export const characterSlice = createSlice({
+export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
@@ -27,8 +27,8 @@ export const characterSlice = createSlice({
   },
 });
 
-export const { loginSuccess, logoutSuccess } = characterSlice.actions;
+export const { loginSuccess, logoutSuccess } = authSlice.actions;
 
 export const selectIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
 
-export default characterSlice.reducer;
+export default authSlice.reducer;

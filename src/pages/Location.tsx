@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import CharacterList from "../components/character/CharacterList";
 import MainLayout from "../components/layout/MainLayout";
-import useLocation from "../core/hooks/useEpisode";
+import useLocation from "../core/hooks/useGenericData";
 import { GET_LOCATIONS } from "../core/services/queries";
 import { Location, LocationResponse } from "../core/types/locations.type";
 

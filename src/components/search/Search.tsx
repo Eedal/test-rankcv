@@ -1,5 +1,4 @@
-import { Box, Button, TextField } from "@mui/material";
-import { Dispatch, SetStateAction } from "react";
+import { Box, TextField } from "@mui/material";
 
 const Search = ({ setSearch }: SearchProps) => {
   return (
@@ -23,7 +22,7 @@ const Search = ({ setSearch }: SearchProps) => {
 };
 
 type SearchProps = {
-  setSearch: Dispatch<SetStateAction<string>>;
+  setSearch: (value: string) => void;
 };
 
 export default Search;

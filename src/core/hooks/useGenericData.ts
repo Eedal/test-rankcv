@@ -11,17 +11,17 @@ const useEpisode = <T, U extends Episode | Location>({
   query,
 }: UseEpisodeProps<T, U>) => {
   const definitionName = query.definitions[0].name.value;
-
   const { loading, error, data } = useQuery<T>(query);
   const [select, setSelect] = useState("1");
 
   const { results: listResult, info }: { results: U[]; info: any } = useMemo(
+    // @ts-ignore
     () => (data ? data[definitionName] : []),
     [data]
   );
 
   const item = useMemo(
-    () => listResult.find((item) => item.id === select),
+    () => listResult?.find((item) => item.id === select),
     [listResult, select]
   );
 
