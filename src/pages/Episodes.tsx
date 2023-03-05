@@ -31,18 +31,18 @@ const Episodes = () => {
       <MainLayout>
         <Subtitle>
           <Typography variant="h3">Episode: {episode?.name}</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: 15,
+            }}
+          >
+            <Typography variant="subtitle1">
+              Air date: {episode?.air_date}
+            </Typography>
+          </Box>
         </Subtitle>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: 15,
-          }}
-        >
-          <Typography variant="subtitle1">
-            Air date: {episode?.air_date}
-          </Typography>
-        </div>
         <Grid container spacing={2}>
           <Grid item xs={3}>
             <Box mt={10} mb={2}>

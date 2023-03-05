@@ -13,6 +13,7 @@ import MainLayout from "../components/layout/MainLayout";
 import useLocation from "../core/hooks/useGenericData";
 import { GET_LOCATIONS } from "../core/services/queries";
 import { Location, LocationResponse } from "../core/types/locations.type";
+import { Subtitle } from "../components/shared/styledComponents";
 
 const LocationComponent = () => {
   const {
@@ -27,15 +28,9 @@ const LocationComponent = () => {
 
   return (
     <MainLayout>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginBottom: 15,
-        }}
-      >
+      <Subtitle>
         <Typography variant="h3">Location: {location?.name}</Typography>
-      </div>
+      </Subtitle>
 
       <Grid container spacing={2}>
         <Grid item xs={3}>

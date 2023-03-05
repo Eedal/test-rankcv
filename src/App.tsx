@@ -15,7 +15,6 @@ function App() {
   
   return (
     <BrowserRouter>
-        <Notifications />
       <Routes>
         <Route path="/login" element={<Login />} />
 
@@ -27,6 +26,7 @@ function App() {
           <Route path="/home/:characterId" element={<Character />} />
         </Route>
       </Routes>
+        <Notifications />
     </BrowserRouter>
   );
 }
