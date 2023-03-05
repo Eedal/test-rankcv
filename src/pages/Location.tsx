@@ -43,7 +43,7 @@ const LocationComponent = () => {
                 handleSelect(e.target.value);
               }}
             >
-              {locations.map((location: Location) => (
+              {locations?.map((location: Location) => (
                 <MenuItem key={location.id} value={location.id}>
                   {location.name}
                 </MenuItem>

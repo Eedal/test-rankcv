@@ -9,7 +9,7 @@ const Login = () => {
       <Box
         sx={{
           height: "100vh",
-          backgroundImage: "url('public/img/background.jpeg')",
+          backgroundImage: "url('https://i.imgur.com/x54SV0y.jpg')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         margin: "-8px",

@@ -26,7 +26,6 @@ const Episodes = () => {
       handleSelect,
     } = useEpisode<EpisodeResponse, Episode>({ query: GET_EPISODES });
 
-    console.count("render");
 
     return (
       <MainLayout>
@@ -60,7 +59,7 @@ const Episodes = () => {
                   handleSelect(e.target.value);
                 }}
               >
-                {episodes.map((episode: Episode) => (
+                {episodes?.map((episode: Episode) => (
                   <MenuItem key={episode.id} value={episode.id}>
                     {episode.name}
                   </MenuItem>

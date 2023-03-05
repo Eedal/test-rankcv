@@ -5,7 +5,6 @@ export type Login = {
 
 export type User = Login & {
   id: number;
-  token: string;
 }
 
 export type AuthState = {

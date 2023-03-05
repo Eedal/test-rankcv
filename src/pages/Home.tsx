@@ -12,8 +12,7 @@ export const Home = () => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const debouncedSearchTerm = useDebounce(search, 500);
-  console.count("render");
-
+  
   const { loading, error, data } = useQuery(GET_CHARACTERS, {
     variables: { page, filter: { name: debouncedSearchTerm } },
   });
