@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { useAppSelector, useAppDispatch } from "../../hooks";
 import { AuthState, User } from "../../core/types/login.type";
 import type { RootState } from "../../store";
 
-const isLoggedIn = Object.values(JSON.parse(localStorage.getItem("user") || "{}")).length > 0;
-
+const isLoggedIn =
+  Object.values(JSON.parse(localStorage.getItem("user") || "{}")).length > 0;
 
 const initialState: AuthState = {
   user: null,
@@ -23,6 +22,7 @@ export const authSlice = createSlice({
     logoutSuccess: (state) => {
       state.user = null;
       state.isLoggedIn = false;
+      localStorage.removeItem("user");
     },
   },
 });

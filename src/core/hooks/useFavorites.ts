@@ -6,24 +6,6 @@ const useFavorites = () => {
     return storedFavorites ? JSON.parse(storedFavorites) : [];
   });
 
-  const addFavorite = (id: string) => {
-    setFavorites((prevFavorites) => {
-      const newFavorites = [...prevFavorites, id];
-      localStorage.setItem("favorites", JSON.stringify(newFavorites));
-      return newFavorites;
-    });
-  };
-
-  const removeFavorite = (id: string) => {
-    setFavorites((prevFavorites) => {
-      const newFavorites = prevFavorites.filter(
-        (favoriteId) => favoriteId !== id
-      );
-      localStorage.setItem("favorites", JSON.stringify(newFavorites));
-      return newFavorites;
-    });
-  };
-
   const handleFavorites = (id: string) => {
     const favoritesLocal = JSON.parse(
       localStorage.getItem("favorites") || "[]"
@@ -31,12 +13,15 @@ const useFavorites = () => {
     const index = favoritesLocal.indexOf(id);
 
     if (index === -1) {
-      addFavorite(id);
+      setFavorites((prevFavorites) => [...prevFavorites, id]);
+      favoritesLocal.push(id);
     } else {
-      removeFavorite(id);
+      favoritesLocal.splice(index, 1);
+      setFavorites(favoritesLocal);
     }
+    localStorage.setItem("favorites", JSON.stringify(favoritesLocal));
   };
-  return { favorites, addFavorite, removeFavorite, handleFavorites };
+  return { favorites, handleFavorites };
 };
 
 export default useFavorites;
