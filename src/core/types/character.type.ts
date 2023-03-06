@@ -1,3 +1,5 @@
+import { Episode } from "./episode.type";
+
 export type Character = {
   id: string;
   name: string;
@@ -13,7 +15,5 @@ type Location = {
   name: string;
 }
 
-type Episode = {
-  id: string;
-}
+
 

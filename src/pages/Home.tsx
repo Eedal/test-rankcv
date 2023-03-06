@@ -8,14 +8,16 @@ import Search from "../components/search/Search";
 import { Subtitle } from "../components/shared/styledComponents";
 import useDebounce from "../core/hooks/useDebonce";
 import { GET_CHARACTERS } from "../core/services/queries";
+import MainFilter from "../components/filter/MainFilter";
 
 export const Home = () => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [status, setStatus] = useState("");
   const debouncedSearchTerm = useDebounce(search, 500);
 
   const { loading, error, data } = useQuery(GET_CHARACTERS, {
-    variables: { page, filter: { name: debouncedSearchTerm } },
+    variables: { page, filter: { name: debouncedSearchTerm, status } },
   });
 
   const handleSearch = (value: string) => {
@@ -37,7 +39,9 @@ export const Home = () => {
       </Subtitle>
       <Grid container spacing={2}>
         <Grid item xs={3}>
-          <Box mt={10}>Algunos filtros</Box>
+          <Box mt={10}>
+            <MainFilter status={status} setStatus={setStatus} />
+          </Box>
         </Grid>
         <Grid item xs={9}>
           <Search setSearch={handleSearch} />

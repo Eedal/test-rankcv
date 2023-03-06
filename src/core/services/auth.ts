@@ -4,7 +4,7 @@ import fetchService from "../utils/fetch-service";
 const AUTH_SERVICE = {
   async login(credentials: Login) {
     // const {data} = await fetchService.get("src/db/index.json");
-    const data  = {
+    const data = {
       users: [
         {
           id: 1,
@@ -18,7 +18,8 @@ const AUTH_SERVICE = {
 
     const user = users.find(
       (user) =>
-        user.username === credentials.username &&
+        user.username.toLocaleLowerCase() ===
+          credentials.username.toLocaleLowerCase() &&
         user.password === credentials.password
     );
 

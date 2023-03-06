@@ -36,6 +36,8 @@ export const GET_CHARACTER = gql`
       status
       episode {
         id
+        name
+        air_date
       }
       id
       location {

@@ -22,7 +22,7 @@ const useFavorites = () => {
       dispatch(
         handleNotification({
           isOpen: true,
-          text: `Agregado personaje ${id} a favoritos`,
+          text: `Added character ${id} to favorites`,
         })
       );
     } else {
@@ -31,10 +31,10 @@ const useFavorites = () => {
       dispatch(
         handleNotification({
           isOpen: true,
-          text: `Removido personaje ${id} de favoritos`,
-          severity: 'info',
+          text: `Removed character ${id} from favorites`,
+          severity: "info",
         })
-      )
+      );
     }
     localStorage.setItem("favorites", JSON.stringify(favoritesLocal));
   };
